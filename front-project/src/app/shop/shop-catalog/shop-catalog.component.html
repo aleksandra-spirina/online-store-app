@@ -1,0 +1,7 @@
+<div class="catalog-header">
+	<h1>Каталог</h1>
+</div>
+<div class="items-container">
+	<app-shop-item *ngFor="let p of positionsService.positions" [position]="p" (add)="addToCart($event)"></app-shop-item>
+</div>
+

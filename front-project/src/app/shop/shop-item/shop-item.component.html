@@ -1,0 +1,13 @@
+<div class="card">
+	<div class="card__info">
+		<div class="card__title">{{position.title}}</div>
+		<div class="card__price">{{position.price | price}}</div>
+	</div>
+	<form class="card__controls" [formGroup]="form">
+		<div class="card__quantity">
+			<input type="number" min="1" max="10" step="1" value="1" formControlName="quantity">
+		</div>
+		<button class="card__button" (click)="toCart()">В корзину</button>
+	</form>
+	<div class="div__rest">Остаток: {{position.quantity}} шт.</div>
+</div>

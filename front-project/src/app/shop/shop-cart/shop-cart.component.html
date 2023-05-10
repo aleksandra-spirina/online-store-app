@@ -1,0 +1,8 @@
+<div class="catalog-header">
+	<h1>Корзина</h1>
+</div>
+<div class="items-container">
+	<app-cart-item *ngFor="let p of purchasesService.purchases" [purchase]="p" (delete)="deleteFromCart($event)"></app-cart-item>
+</div>
+
+

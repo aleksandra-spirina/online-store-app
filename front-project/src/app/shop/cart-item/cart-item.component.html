@@ -1,0 +1,15 @@
+<div class="card">
+	<div class="card__close" (click)="onDelete()"></div>
+	<div class="card__container">
+		<div class="card__info">
+			<div class="card__title">{{purchase.title}}</div>
+			<div class="card__price">{{purchase.price | price}}</div>
+		</div>
+		<form class="card__controls" [formGroup]="form">
+			<div class="card__quantity">
+				<input type="number" min="0" max="10" step="1" value="1" (input)="onChange($event)" formControlName="quantity">
+			</div>
+		</form>
+		<div>В корзине: {{purchase.quantity}} шт.</div>
+	</div>
+</div>
