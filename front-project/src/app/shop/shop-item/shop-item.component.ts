@@ -12,7 +12,7 @@ export class ShopItemComponent {
 	@Output() add = new EventEmitter<Position>();
 
 	form = new FormGroup({
-		quantity: new FormControl<number>(1)
+		quantity: new FormControl<number>(1, [Validators.required, Validators.min(1)])
 	});
 
 	toCart(): void {

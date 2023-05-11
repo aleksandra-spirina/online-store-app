@@ -1,0 +1,36 @@
+<form class="form" [formGroup]="form">
+
+	<div *tuiLet="items$ | async as items" class="tui-form__row">
+		<tui-combo-box tuiTextfieldSize="s" formControlName="country" [strict]="false">
+			Страна
+			<tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+		</tui-combo-box>
+	</div>
+
+	<div class="tui-form__row">
+		<tui-input tuiTextfieldSize="s" formControlName="address">
+			Адрес
+			<input tuiTextfield type="text" />
+		</tui-input>
+	</div>
+
+	<div class="tui-form__row">
+		<tui-input tuiTextfieldSize="s" formControlName="name">
+			Имя
+			<input tuiTextfield type="text" />
+		</tui-input>
+	</div>
+
+	<div class="tui-form__row">
+		<tui-input tuiTextfieldSize="s" formControlName="email">
+			Email
+			<input tuiTextfield placeholder="mail@mail.ru" type="email" />
+		</tui-input>
+	</div>
+
+	<div class="tui-form__row buttons">
+		<button tuiButton class="tui-form__button" size="s" type="submit" [disabled]="!form.valid">
+			Заказать
+		</button>
+	</div>
+</form>

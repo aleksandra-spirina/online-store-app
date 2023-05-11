@@ -12,6 +12,13 @@ import { PurchasesApiMockService } from 'src/shared/services/purchasesMockApi.se
 import { HttpClientModule } from '@angular/common/http';
 import { IPositionsApiServiceToken } from 'src/shared/interfaces/IPositionsApiService';
 import { PositionsMockApiService } from 'src/shared/services/positionsMockApi.service';
+import { BuyerFormComponent } from './buyer-form/buyer-form.component';
+import { TuiInputModule } from '@taiga-ui/kit';
+import {TuiButtonModule} from '@taiga-ui/core';
+import {TuiDataListModule} from '@taiga-ui/core';
+import {TuiComboBoxModule, TuiDataListWrapperModule} from '@taiga-ui/kit';
+import {TuiLetModule} from '@taiga-ui/cdk';
+
 
 
 @NgModule({
@@ -21,13 +28,20 @@ import { PositionsMockApiService } from 'src/shared/services/positionsMockApi.se
 		ShopCatalogComponent,
 		ShopItemComponent,
 		PricePipe,
-		CartItemComponent
+		CartItemComponent,
+		BuyerFormComponent
 	],
 	imports: [
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
-		HttpClientModule
+		HttpClientModule,
+		TuiInputModule,
+		TuiButtonModule, 
+		TuiDataListModule,
+		TuiComboBoxModule,
+		TuiDataListWrapperModule,
+		TuiLetModule
 	],
 	exports: [
 		ShopComponent

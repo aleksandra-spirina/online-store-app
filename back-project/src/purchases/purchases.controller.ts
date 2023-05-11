@@ -9,8 +9,8 @@ export class PurchasesController {
 	protected readonly entitiesRepository: Repository<PurchaseEntity>;
 
 	@Get()
-	async getAll(): Promise<PurchaseEntity[]> {
-		return this.entitiesRepository.find();
+	async getAll(): Promise<void> {
+		return this.entitiesRepository.find().then(r => {console.log(r)});
 	}
 
 	@Post()

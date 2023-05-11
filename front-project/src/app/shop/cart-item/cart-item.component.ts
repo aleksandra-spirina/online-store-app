@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { Purchase } from 'src/shared/interfaces/Purchase';
 
@@ -9,26 +9,19 @@ import { Purchase } from 'src/shared/interfaces/Purchase';
 	styleUrls: ['./cart-item.component.less']
 })
 export class CartItemComponent {
-	private _purchase: Purchase = {} as Purchase;
-	@Input()
-	set purchase(p: Purchase) {
-		this._purchase = p;
-		this.form.setValue({
-			quantity: this._purchase.quantity
-		})
-	}
-	get purchase(): Purchase {
-		return this._purchase;
-	}
-
+	@Input() purchase: Purchase = {} as Purchase;
 	@Output() delete = new EventEmitter<Purchase>();
+	@Output() edit = new EventEmitter<Purchase>();
 
 	form = new FormGroup({
-		quantity: new FormControl<number>(1)
+		quantity: new FormControl<number>(1, [Validators.required, Validators.min(1)])
 	});
 
 	readonly changeQuantity$ = new Subject<number>();
 
+	constructor() {
+		this.changeQuantity$.subscribe(r => console.log(r));
+	}
 
 	onDelete(): void {
 		this.delete.emit(this.purchase);
@@ -36,8 +29,14 @@ export class CartItemComponent {
 
 	onChange(e: Event) {
 		const value: number = parseInt((e.target as HTMLTextAreaElement).value);
-		if(value) {
+		if (value) {
 			this.changeQuantity$.next(value);
 		}
-  }
+	}
+
+	onEdit() {
+		const newPurchase = JSON.parse(JSON.stringify(this.purchase));
+		newPurchase.quantity = this.form.get('quantity')?.value!;
+		this.edit.emit(newPurchase);
+	}
 }

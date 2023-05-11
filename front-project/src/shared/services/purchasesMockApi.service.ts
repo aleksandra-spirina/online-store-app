@@ -13,7 +13,7 @@ export class PurchasesApiMockService implements IPurchasesApiService {
 
 	add(purchase: Purchase): Observable<void> {
 		data.push(purchase);
-		return of();
+		return of(undefined);
 	}
 
 	delete(purchase: Purchase): Observable<void> {
@@ -21,7 +21,7 @@ export class PurchasesApiMockService implements IPurchasesApiService {
 		if (index > -1) {
 			data.splice(index, 1);
 		}
-		return of();
+		return of(undefined);
 	}
 
 	edit(id: number, purchase: Purchase): Observable<void> {
@@ -31,6 +31,6 @@ export class PurchasesApiMockService implements IPurchasesApiService {
 				break;
 			}
 		}
-		return of();
+		return of(undefined);
 	}
 }

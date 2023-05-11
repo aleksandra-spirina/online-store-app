@@ -7,8 +7,9 @@
 		</div>
 		<form class="card__controls" [formGroup]="form">
 			<div class="card__quantity">
-				<input type="number" min="0" max="10" step="1" value="1" (input)="onChange($event)" formControlName="quantity">
+				<input type="number" min="0" max="100" step="1" (input)="onChange($event)" formControlName="quantity">
 			</div>
+			<button class="card__button" (click)="onEdit()" [disabled]="!form.valid">Изменить</button>
 		</form>
 		<div>В корзине: {{purchase.quantity}} шт.</div>
 	</div>

@@ -1,9 +1,5 @@
 {
-	"type": "postgres",
-	"host": "localhost",
-	"port": 5432,
-	"username": "postgres",
-	"password": "password",
+	"type": "sqlite",
 	"database": "purchases",
 	"synchronize": true,
 	"logging": true,

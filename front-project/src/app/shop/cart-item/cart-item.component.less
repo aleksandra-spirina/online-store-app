@@ -1,6 +1,8 @@
 :host {
 	--background-card: #DBD9DB;
 	--delete-color: #de3232;
+	--button-color: rgba(182, 198, 73, 0.7);
+	--button-hover-color: rgba(182, 198, 73, 1);
 }
 
 .card {
@@ -67,6 +69,17 @@
 
 .card__close:after {
 	transform: rotate(-45deg);
+}
+
+.card__button {
+  background-color: white;
+	border: none;
+	background: var(--button-color);
+	border-radius: 5px;
+}
+
+.card__button:hover {
+	background-color: var(--button-hover-color);
 }
 
 

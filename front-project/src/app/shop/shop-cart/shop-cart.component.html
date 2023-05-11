@@ -2,7 +2,15 @@
 	<h1>Корзина</h1>
 </div>
 <div class="items-container">
-	<app-cart-item *ngFor="let p of purchasesService.purchases" [purchase]="p" (delete)="deleteFromCart($event)"></app-cart-item>
+	<app-cart-item *ngFor="let p of purchasesService.purchases" [purchase]="p" 
+	(delete)="deleteFromCart($event)"
+	(edit)="editCartItem($event)"></app-cart-item>
 </div>
+<div class="ordering-data" *ngIf="!!purchasesService.summary">
+	<span class="caption">Итого:&nbsp; {{ purchasesService.summary }}</span>
+	<app-buyer-form></app-buyer-form>
+</div>
+<div *ngIf="!purchasesService.summary">В корзине ничего нет :(</div>
+
 
 

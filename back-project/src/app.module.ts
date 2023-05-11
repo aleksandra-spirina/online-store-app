@@ -8,17 +8,7 @@ const settings = require('../ormconfig.json');
 
 @Module({
 	imports: [
-		TypeOrmModule.forRoot({
-			type: "postgres",
-			host: "localhost",
-			port: 5432,
-			username: "postgres",
-			password: "password",
-			database: "purchases",
-			synchronize: true,
-			logging: true,
-			entities: [PositionEntity, PurchaseEntity],
-		}),
+		TypeOrmModule.forRoot(settings),
 		PurchasesModule,
 		PositionsModule
 	]
